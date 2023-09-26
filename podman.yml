@@ -1,0 +1,23 @@
+---
+- hosts: all
+  
+  tasks:
+    - name: create db folder in host
+      file:
+        path: ./db/mariadb
+        state: directory
+        recurse: yes
+
+    - name: create mariadb container
+      containers.podman.podman_container:
+        name: mariadb
+        image: docker.io/library/mariadb
+        state: started
+        env:
+          MARIADB_ROOT_PASSWORD: "mariadb"
+          MARIADB_USER: "mariadb"
+          MARIADB_PASSWORD: "mariadb"
+          MARIADB_DATABASE: "mariadb"
+        ports: "3310:3306"
+        volume:
+          - "./db/mariadb:/var/lib/mysql"

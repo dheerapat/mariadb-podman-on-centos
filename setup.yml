@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: update current packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: install podman
+      dnf:
+        name: podman
+        state: latest
+
+    - name: enable port for mariadb
+      ansible.posix.firewalld:
+        port: 3310/tcp
+        permanent: true
+        state: enabled

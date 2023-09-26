@@ -1,0 +1,6 @@
+[machine-name]
+0.0.0.0
+
+[machine-name:vars]
+ansible_user=example
+ansible_ssh_private_key_file=/path/to/key/file.pem
