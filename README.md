@@ -14,4 +14,4 @@ Tested on AWS EC2 instance with CentOS Stream 9 image
 ansible-playbook setup.yml
 ansible-playbook podman.yml
 ```
-6. Check if mariadb container you just create is running via `ansible <machine-name-in-host.ini> -a "podman ps"`
+7. Check if mariadb container you just create is running via `ansible <machine-name-in-host.ini> -a "podman ps"`
