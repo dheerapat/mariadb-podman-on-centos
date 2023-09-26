@@ -3,9 +3,19 @@
   become: yes
 
   tasks:
+    - name: enable linger on ec2-user
+      command: "loginctl enable-linger ec2-user"
+
     - name: update current packages
       dnf:
         name: "*"
+        state: latest
+    
+    - name: install firewall related package
+      dnf:
+        name:
+          - firewalld
+          - python-firewall
         state: latest
 
     - name: install podman

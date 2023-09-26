@@ -7,12 +7,14 @@
         path: ./db/mariadb
         state: directory
         recurse: yes
+        mode: u=rwx,g=rw,o=rw
 
     - name: create mariadb container
       containers.podman.podman_container:
         name: mariadb
         image: docker.io/library/mariadb
         state: started
+        recreate: true
         env:
           MARIADB_ROOT_PASSWORD: "mariadb"
           MARIADB_USER: "mariadb"
@@ -20,4 +22,4 @@
           MARIADB_DATABASE: "mariadb"
         ports: "3310:3306"
         volume:
-          - "./db/mariadb:/var/lib/mysql"
+          - "./db/mariadb:/var/lib/mysql:Z"
