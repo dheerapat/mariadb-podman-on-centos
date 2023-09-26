@@ -4,9 +4,10 @@
 
 1. Make sure you have ansible installed.
 2. Clone this repository.
-3. Create `hosts.ini` file using `hosts.ini.example` file provided.
-4. You may run `ansible <machine-name-in-host.ini> -m ping` first to test your connection to your machine.
-5. If everything all set run the following command
+3. `cd` into the directory you just cloned
+4. Create `hosts.ini` file using `hosts.ini.example` file provided.
+5. You may run `ansible <machine-name-in-host.ini> -m ping` first to test your connection to your machine.
+6. If everything all set run the following command
 ```bash
 ansible-playbook setup.yml
 ansible-playbook podman.yml
