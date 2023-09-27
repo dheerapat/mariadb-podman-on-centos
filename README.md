@@ -1,6 +1,6 @@
 # Ansible playbook for setup mariadb using podman on CentOS host
 
-Tested on AWS EC2 instance with CentOS Stream 9 image
+Tested on AWS LightSail instance with CentOS Stream 9 image
 
 ### How to run this playbook
 
